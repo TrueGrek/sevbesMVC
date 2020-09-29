@@ -1,0 +1,22 @@
+﻿@model List<sevbesMVC.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    @foreach (var item in Model)
+    {
+    <p>
+        @Html.LabelForModel(item.Email.ToString())
+    </p>
+}
+    </p>
+<form target="_blank">
+    <button type="submit">@Html.ActionLink("посмотреть свою роли", "YourRoles", "Test")</button>
+</form><br />
+    <form target="_blank">
+        <button type="submit">@Html.ActionLink("посмотреть все роли", "AllRoles", "Test")</button>
+    </form>
+
+
