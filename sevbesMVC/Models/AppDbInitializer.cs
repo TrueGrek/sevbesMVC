@@ -5,6 +5,7 @@ using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using sevbesMVC.Controllers;
 
 namespace sevbesMVC.Models
 {
@@ -14,14 +15,14 @@ namespace sevbesMVC.Models
         {
             var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
 
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            var roleManager = new RoleManager<ApplicationRole>(new RoleStore<ApplicationRole>(context));
 
             // создаем две роли
-            var adminrole = new IdentityRole { Name = "admin" };
-            var userrole = new IdentityRole { Name = "user" };
-            var googlerole = new IdentityRole { Name = "google" };
-            var yandexrole = new IdentityRole { Name = "yandex" };
-            var gmailrole = new IdentityRole { Name = "gmail" };
+            var adminrole = new ApplicationRole { Name = "admin" };
+            var userrole = new ApplicationRole { Name = "user" };
+            var googlerole = new ApplicationRole { Name = "google" };
+            var yandexrole = new ApplicationRole { Name = "yandex" };
+            var gmailrole = new ApplicationRole { Name = "gmail" };
 
             // добавляем роли в бд
             roleManager.Create(adminrole);
@@ -29,6 +30,28 @@ namespace sevbesMVC.Models
             roleManager.Create(googlerole);
             roleManager.Create(yandexrole);
             roleManager.Create(gmailrole);
+
+
+            //roleManager.CreateAsync(new ApplicationRole
+            //{
+            //    Name = "admin"
+            //});
+            //roleManager.CreateAsync(new ApplicationRole
+            //{
+            //    Name = "user"
+            //});
+            //roleManager.CreateAsync(new ApplicationRole
+            //{
+            //    Name = "google"
+            //});
+            //roleManager.CreateAsync(new ApplicationRole
+            //{
+            //    Name = "yandex"
+            //});
+            //roleManager.CreateAsync(new ApplicationRole
+            //{
+            //    Name = "gmail"
+            //});
 
             // создаем пользователей
             var defaultadmin = new ApplicationUser { Email = "MrGladiatorDead@gmail.com", UserName = "MrGladiatorDead@gmail.com" };

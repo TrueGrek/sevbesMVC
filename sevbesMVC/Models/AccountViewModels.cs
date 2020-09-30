@@ -109,8 +109,6 @@ namespace sevbesMVC.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
-    /// <summary>
-    /// мои добавления 
-    /// </summary>
+
 
 }
